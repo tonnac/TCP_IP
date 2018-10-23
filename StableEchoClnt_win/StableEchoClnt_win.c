@@ -11,7 +11,7 @@
 int main()
 {
 	const u_short port = 12345;
-	const char IPAddr[] = "127.0.0.1";
+	const char IPAddr[] = "219.254.48.7";
 
 	WSADATA wsaData;
 	SOCKET hSocket;

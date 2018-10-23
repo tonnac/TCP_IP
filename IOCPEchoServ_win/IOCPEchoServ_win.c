@@ -55,10 +55,11 @@ int main()
 	ZeroMemory(&servAdr, sizeof(servAdr));
 	servAdr.sin_port = htons(port);
 	servAdr.sin_family = AF_INET;
-	InetPtonA(AF_INET, IPAddr, &servAdr.sin_addr);
+//	InetPtonA(AF_INET, IPAddr, &servAdr.sin_addr);
+	servAdr.sin_addr.s_addr = htonl(INADDR_ANY);
 
-	bind(hServSock, (SOCKADDR*)&servAdr, sizeof(servAdr));
-	listen(hServSock, SOMAXCONN);
+	int iRet = bind(hServSock, (SOCKADDR*)&servAdr, sizeof(servAdr));
+	iRet = listen(hServSock, SOMAXCONN);
 
 	while (1)
 	{
